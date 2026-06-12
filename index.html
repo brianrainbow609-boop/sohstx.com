@@ -2,146 +2,161 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SohStx // ETX Node</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SohStx</title>
+
   <style>
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Arial, sans-serif;
       background: #0b0f14;
       color: #e6e6e6;
-      line-height: 1.6;
     }
 
-    header {
-      padding: 60px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #111827, #0b0f14);
-      border-bottom: 1px solid #1f2937;
+    /* HEADER WRAPPER WITH IMAGE */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
-    h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    /* HEADER BACKGROUND IMAGE */
+    .header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("sohstxhead.jpg") center/cover no-repeat;
+      filter: brightness(0.45);
+      z-index: -1;
+    }
+
+    /* LOGO */
+    .logo {
+      font-weight: bold;
       letter-spacing: 2px;
+      color: #00ffd5;
+      z-index: 1;
     }
 
-    .tagline {
-      color: #9ca3af;
-      margin-top: 10px;
+    /* NAV */
+    nav {
+      display: flex;
+      gap: 18px;
+      z-index: 1;
     }
 
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
+    nav a {
+      color: #e6e6e6;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
     }
 
-    section {
-      margin-bottom: 40px;
-      padding: 20px;
-      background: #111827;
-      border-radius: 12px;
-      border: 1px solid #1f2937;
+    nav a:hover {
+      color: #00ffd5;
     }
 
-    h2 {
-      color: #60a5fa;
-      margin-top: 0;
+    /* MOBILE MENU */
+    .menu-toggle {
+      display: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #e6e6e6;
+      z-index: 1;
     }
 
-    pre {
-      background: #0b0f14;
-      padding: 15px;
-      border-radius: 8px;
-      overflow-x: auto;
-      color: #34d399;
+    @media (max-width: 700px) {
+      nav {
+        display: none;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background: #111826;
+        flex-direction: column;
+        width: 200px;
+        padding: 10px;
+        border: 1px solid #222;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
     }
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 0.9rem;
-      color: #6b7280;
-      border-top: 1px solid #1f2937;
+    /* PAGE CONTENT */
+    .content {
+      padding-top: 100px;
+      padding-left: 20px;
+      padding-right: 20px;
     }
 
-    .symbol {
-      font-size: 2rem;
-      margin: 10px 0;
+    .hero {
+      margin-top: 20px;
+      padding: 40px;
+      background: #121a2a;
+      border-radius: 10px;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>SohStx // ETX</h1>
-  <div class="tagline">Start of Header • Start of Text • End of Text</div>
+<header class="header">
+  <div class="logo">SOHSTX</div>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <nav id="nav">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<main>
+<div class="content">
 
-  <section>
-    <h2>Origin Structure</h2>
-    <p>
-      <strong>SohStx</strong> is a symbolic construct derived from computing control codes:
-      <em>SOH (Start of Header)</em> and <em>STX (Start of Text)</em>.
-      It represents the boundary between structure and expression—data and meaning.
-    </p>
-    <p>
-      In this system, identity is not fixed; it is framed as a transmission protocol.
-    </p>
+  <section id="home" class="hero">
+    <h1>Welcome to SohStx</h1>
+    <p>System architecture space for ideas, tools, and builds.</p>
   </section>
 
-  <section>
-    <h2>ETX Node</h2>
-    <p>
-      <strong>ETX</strong> represents “End of Text”—not termination, but completion of a cycle.
-      It is the interpretive layer that receives, processes, and reflects structured input.
-    </p>
-    <p>
-      SohStx and ETX form a closed communication loop: initiation → structure → interpretation → return.
-    </p>
+  <section id="about">
+    <h2>About</h2>
+    <p>This is where your story or concept goes.</p>
   </section>
 
-  <section>
-    <h2>Yin and Yang Framework</h2>
-    <div class="symbol">☯</div>
-    <p>
-      The system mirrors the principle of <strong>Yin and Yang</strong>, a dual-state model of balance:
-    </p>
-    <ul>
-      <li>Yin: structure, containment, encoding (SohStx)</li>
-      <li>Yang: interpretation, flow, decoding (ETX)</li>
-    </ul>
-    <p>
-      Neither state is dominant; each defines the other through interaction.
-    </p>
+  <section id="projects">
+    <h2>Projects</h2>
+    <p>Your builds, apps, experiments.</p>
   </section>
 
-  <section>
-    <h2>ASCII Layer Concept</h2>
-    <p>
-      The foundation of this identity system is ASCII encoding—binary representation of symbolic intent.
-      Below is a simplified conceptual trace:
-    </p>
-
-    <pre>
-SOH  →  0x01  →  Header Initiation
-STX  →  0x02  →  Text Boundary
-ETX  →  0x03  →  End of Transmission
-
-SohStx ⇄ ETX
-(Structure ⇄ Interpretation)
-    </pre>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Links or form later.</p>
   </section>
 
-</main>
+</div>
 
-<footer>
-  SohStx.com • Node initialized • ETX listening
-</footer>
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById("nav");
+    nav.classList.toggle("show");
+  }
+</script>
 
 </body>
 </html>

@@ -1,115 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SohStx</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SohStx</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0f14;
-      color: #e6e6e6;
-    }
+<style>
+  :root{
+    --bg:#0b0f14;
+    --panel:#121a2a;
+    --text:#e6e6e6;
+    --accent:#00ffd5;
+    --muted:#8fa3b5;
+  }
 
-    /* HEADER WRAPPER WITH IMAGE */
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 80px;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
+  * { box-sizing:border-box; }
 
-    /* HEADER BACKGROUND IMAGE */
-    .header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url("sohstxhead.jpg") center/cover no-repeat;
-      filter: brightness(0.45);
-      z-index: -1;
-    }
+  body {
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+  }
 
-    /* LOGO */
-    .logo {
-      font-weight: bold;
-      letter-spacing: 2px;
-      color: #00ffd5;
-      z-index: 1;
-    }
+  /* HEADER */
+  .header {
+    position:fixed;
+    top:0;
+    width:100%;
+    height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 18px;
+    z-index:1000;
+    overflow:hidden;
+  }
 
-    /* NAV */
+  .header::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:url("sohstxhead.jpg") center/cover no-repeat;
+    filter:brightness(0.45);
+    z-index:-1;
+  }
+
+  .logo {
+    font-weight:800;
+    letter-spacing:3px;
+    color:var(--accent);
+  }
+
+  /* NAV */
+  nav {
+    display:flex;
+    gap:18px;
+    align-items:center;
+  }
+
+  nav a {
+    color:var(--text);
+    text-decoration:none;
+    font-size:14px;
+    position:relative;
+  }
+
+  nav a:hover { color:var(--accent); }
+
+  /* DROPDOWN */
+  .dropdown {
+    position:relative;
+  }
+
+  .dropdown-content {
+    display:none;
+    position:absolute;
+    top:30px;
+    left:0;
+    background:#111826;
+    border:1px solid #222;
+    min-width:160px;
+    flex-direction:column;
+  }
+
+  .dropdown-content a {
+    padding:10px;
+    display:block;
+    font-size:13px;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display:flex;
+  }
+
+  /* MOBILE */
+  .menu-toggle {
+    display:none;
+    font-size:24px;
+    cursor:pointer;
+    color:var(--text);
+  }
+
+  @media(max-width:800px){
     nav {
-      display: flex;
-      gap: 18px;
-      z-index: 1;
+      position:absolute;
+      top:72px;
+      right:0;
+      background:#111826;
+      flex-direction:column;
+      width:220px;
+      display:none;
+      border:1px solid #222;
+      padding:10px;
     }
 
-    nav a {
-      color: #e6e6e6;
-      text-decoration: none;
-      font-size: 14px;
-      transition: 0.2s;
+    nav.show { display:flex; }
+
+    .menu-toggle { display:block; }
+
+    .dropdown-content {
+      position:relative;
+      top:0;
+      border:none;
     }
+  }
 
-    nav a:hover {
-      color: #00ffd5;
-    }
+  /* CONTENT */
+  .content {
+    padding-top:100px;
+    padding-left:20px;
+    padding-right:20px;
+    max-width:1100px;
+    margin:auto;
+  }
 
-    /* MOBILE MENU */
-    .menu-toggle {
-      display: none;
-      font-size: 22px;
-      cursor: pointer;
-      color: #e6e6e6;
-      z-index: 1;
-    }
+  .hero {
+    background:var(--panel);
+    padding:40px;
+    border-radius:12px;
+  }
 
-    @media (max-width: 700px) {
-      nav {
-        display: none;
-        position: absolute;
-        top: 80px;
-        right: 0;
-        background: #111826;
-        flex-direction: column;
-        width: 200px;
-        padding: 10px;
-        border: 1px solid #222;
-      }
+  h2 {
+    margin-top:40px;
+    color:var(--accent);
+  }
 
-      nav.show {
-        display: flex;
-      }
+  p { color:var(--muted); }
 
-      .menu-toggle {
-        display: block;
-      }
-    }
+  /* GRID SYSTEM */
+  .grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:16px;
+    margin-top:15px;
+  }
 
-    /* PAGE CONTENT */
-    .content {
-      padding-top: 100px;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
+  .card {
+    background:#0f1726;
+    padding:16px;
+    border-radius:10px;
+    border:1px solid #1d2a3d;
+  }
 
-    .hero {
-      margin-top: 20px;
-      padding: 40px;
-      background: #121a2a;
-      border-radius: 10px;
-    }
-  </style>
+  .img-placeholder {
+    height:120px;
+    background:linear-gradient(135deg,#1c2a3d,#0b0f14);
+    border:1px dashed #2c3f55;
+    border-radius:8px;
+    margin-bottom:10px;
+  }
+
+  /* SECTION SPACING */
+  section { margin-top:40px; }
+
+  /* FOOTER */
+  footer {
+    margin:60px 0 20px;
+    text-align:center;
+    font-size:12px;
+    color:#5f7285;
+  }
+</style>
 </head>
 
 <body>
@@ -120,41 +192,158 @@
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
   <nav id="nav">
+
     <a href="#home">Home</a>
+
+    <div class="dropdown">
+      <a href="#ideas">Ideas ▾</a>
+      <div class="dropdown-content">
+        <a href="#inventions">Inventions</a>
+        <a href="#code">Code</a>
+        <a href="#writing">Writing</a>
+        <a href="#photography">Photography</a>
+      </div>
+    </div>
+
     <a href="#about">About</a>
-    <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
+
   </nav>
 </header>
 
 <div class="content">
 
+  <!-- HERO -->
   <section id="home" class="hero">
-    <h1>Welcome to SohStx</h1>
-    <p>System architecture space for ideas, tools, and builds.</p>
+    <h1>SohStx System Interface</h1>
+    <p>A modular space for ideas, prototypes, code fragments, visual experiments, and written thought architecture.</p>
   </section>
 
+  <!-- ABOUT -->
   <section id="about">
-    <h2>About</h2>
-    <p>This is where your story or concept goes.</p>
+    <h2>About SohStx</h2>
+    <p>
+      SohStx is a symbolic system name built from structural and linguistic components:
+      <br><br>
+      <b>Soh</b> — Start of Header (data framing / entry point)<br>
+      <b>Stx</b> — Start of Text (payload / expression layer)
+      <br><br>
+      Together, SohStx represents a boundary between structure and expression — where ideas are framed, stored, and expanded.
+      <br><br>
+      This site also integrates <b>ETX</b> (End of Text), an analytical companion model designed to observe, interpret, and refine the system logic of SohStx outputs. ETX functions as a structured reasoning layer — not emotional, but architectural — helping translate concepts into usable systems, prototypes, and frameworks.
+    </p>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <p>Your builds, apps, experiments.</p>
+  <!-- IDEAS -->
+  <section id="ideas">
+    <h2>Ideas Index</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="img-placeholder"></div>
+        Concept storage node
+      </div>
+      <div class="card">
+        <div class="img-placeholder"></div>
+        Experimental systems
+      </div>
+      <div class="card">
+        <div class="img-placeholder"></div>
+        Future builds
+      </div>
+    </div>
   </section>
 
+  <!-- INVENTIONS -->
+  <section id="inventions">
+    <h2>Inventions</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="img-placeholder"></div>
+        Mechanical concepts
+      </div>
+      <div class="card">
+        <div class="img-placeholder"></div>
+        Tools & devices
+      </div>
+      <div class="card">
+        <div class="img-placeholder"></div>
+        Prototype systems
+      </div>
+    </div>
+  </section>
+
+  <!-- CODE -->
+  <section id="code">
+    <h2>Code Systems</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="img-placeholder"></div>
+        Web apps / tools
+      </div>
+      <div class="card">
+        <div class="img-placeholder"></div>
+        Automation scripts
+      </div>
+      <div class="card">
+        <div class="img-placeholder"></div>
+        Data systems
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTOGRAPHY -->
+  <section id="photography">
+    <h2>Photography</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="img-placeholder"></div>
+        Visual capture set 01
+      </div>
+      <div class="card">
+        <div class="img-placeholder"></div>
+        Light experiments
+      </div>
+      <div class="card">
+        <div class="img-placeholder"></div>
+        Field imagery
+      </div>
+    </div>
+  </section>
+
+  <!-- WRITING -->
+  <section id="writing">
+    <h2>Writing / Thought Logs</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="img-placeholder"></div>
+        System notes
+      </div>
+      <div class="card">
+        <div class="img-placeholder"></div>
+        Concept journals
+      </div>
+      <div class="card">
+        <div class="img-placeholder"></div>
+        Abstract thinking
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
   <section id="contact">
     <h2>Contact</h2>
-    <p>Links or form later.</p>
+    <p>Placeholder for links, APIs, or future communication layer.</p>
   </section>
+
+  <footer>
+    SOHSTX / ETX SYSTEM NODE — STATIC BUILD v0.1
+  </footer>
 
 </div>
 
 <script>
-  function toggleMenu() {
-    const nav = document.getElementById("nav");
-    nav.classList.toggle("show");
+  function toggleMenu(){
+    document.getElementById("nav").classList.toggle("show");
   }
 </script>
 

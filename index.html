@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Heartland Tire & Treads | Lincoln, NE</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
   <style>
     /* ── Reset & Tokens ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -21,8 +19,8 @@
       --text:     #1C2229;
       --muted:    #5A6A78;
       --border:   #D4D9DE;
-      --font-display: 'Barlow Condensed', sans-serif;
-      --font-body:    'Inter', sans-serif;
+      --font-display: 'Arial Narrow', 'Impact', 'Haettenschweiler', Arial, sans-serif;
+      --font-body:    -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
       --nav-h: 68px;
     }
     html { scroll-behavior: smooth; }
@@ -384,4 +382,345 @@
       </div>
       <div class="nav-item">
         <span class="nav-link">Brands <span class="caret">▾</span></span>
-        <div class="dropd
+        <div class="dropdown">
+          <a href="#">Michelin</a>
+          <a href="#">Goodyear</a>
+          <a href="#">BF Goodrich</a>
+          <a href="#">Firestone</a>
+          <a href="#">Cooper</a>
+          <a href="#">Hankook</a>
+          <a href="#">All Brands</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <span class="nav-link">About <span class="caret">▾</span></span>
+        <div class="dropdown">
+          <a href="#about">Our Story</a>
+          <a href="#reviews">Customer Reviews</a>
+          <a href="#location">Hours & Location</a>
+        </div>
+      </div>
+      <a href="#location" class="nav-link">Contact</a>
+      <a href="#appointment" class="nav-link nav-cta">Book Appointment</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-img-box">
+      <!-- Replace src with your store photo -->
+      <div class="hero-img-placeholder">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" fill="currentColor"/></svg>
+        <p>Add store photo here</p>
+      </div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Lincoln, Nebraska</p>
+      <h1>Built for<br/>the <em>Road</em><br/>Ahead.</h1>
+      <p class="hero-sub">Honest service, fair prices, and the right tire for every vehicle — from personal cars to commercial fleets. Serving Lincoln since day one.</p>
+      <div class="hero-actions">
+        <a href="#appointment" class="btn btn-primary btn-lg">Book an Appointment</a>
+        <a href="tel:+14024767200" class="btn btn-ghost btn-lg">📞 (402) 476-7200</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="trust-item">
+      <span class="trust-icon">⚙️</span>
+      <div class="trust-text"><strong>Fast Turnaround</strong><span>In and out, same day</span></div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">💬</span>
+      <div class="trust-text"><strong>Honest Estimates</strong><span>No surprise charges</span></div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🛞</span>
+      <div class="trust-text"><strong>All Vehicle Types</strong><span>Cars, trucks, fleets & more</span></div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">📍</span>
+      <div class="trust-text"><strong>6410 N 56th St</strong><span>Lincoln, NE 68504</span></div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <div class="services-header">
+      <p class="section-label">What We Do</p>
+      <h2 class="section-title">Full-Service Tire<br/>& Auto Care</h2>
+      <p class="section-sub">From a quick flat repair to a complete set of commercial tires, our team handles it all with the same level of care and speed.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="4" fill="currentColor"/><line x1="12" y1="2" x2="12" y2="6" stroke="currentColor" stroke-width="2"/><line x1="12" y1="18" x2="12" y2="22" stroke="currentColor" stroke-width="2"/><line x1="2" y1="12" x2="6" y2="12" stroke="currentColor" stroke-width="2"/><line x1="18" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <h3>Tire Sales & Installation</h3>
+        <p>New tires for any make and model. We carry a full range of passenger, truck, and performance tires and get them mounted and balanced fast.</p>
+        <a href="#" class="service-link">View tire brands →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="currentColor"/></svg>
+        </div>
+        <h3>Flat Tire Repair</h3>
+        <p>Got a flat? Walk in anytime. We'll assess, patch or plug, and have you back on the road quickly — often while you wait.</p>
+        <a href="#" class="service-link">Learn more →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" fill="currentColor"/></svg>
+        </div>
+        <h3>Tire Rotation</h3>
+        <p>Regular rotation extends tire life and keeps your vehicle driving evenly. We'll check pressure and tread depth at the same time.</p>
+        <a href="#" class="service-link">Schedule now →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg>
+        </div>
+        <h3>Wheel Alignment</h3>
+        <p>Misaligned wheels wear tires unevenly and affect handling. Our alignment checks get your vehicle tracking straight and true.</p>
+        <a href="#" class="service-link">Schedule now →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" fill="currentColor"/></svg>
+        </div>
+        <h3>Fleet Services</h3>
+        <p>We service commercial fleets and industrial vehicles including forklifts. Volume pricing available — talk to us about a service account.</p>
+        <a href="#" class="service-link">Fleet inquiries →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.07 4.93A10 10 0 0 0 6.99 3.34L9 9l-5.06.85A10 10 0 1 0 19.07 4.93zm-7.07 15.07a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" fill="currentColor"/></svg>
+        </div>
+        <h3>Brake Inspection</h3>
+        <p>Squealing or slow stopping? We'll check your pads, rotors, and fluid and give you a straight answer on what's needed — no upsells.</p>
+        <a href="#" class="service-link">Learn more →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="photo-stack">
+        <div class="photo-main">
+          <!-- Replace with shop/team photo -->
+          <div class="photo-placeholder">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <p>Add team photo here</p>
+          </div>
+        </div>
+        <div class="photo-accent">
+          <!-- Replace with interior/bay photo -->
+          <div class="photo-placeholder">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <p>Shop photo</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="section-label">About Us</p>
+        <h2 class="section-title">Your Local Tire<br/>Experts in Lincoln</h2>
+        <p>Heartland Tire & Treads has been a trusted name on North 56th Street for years. We're a locally operated shop that treats every customer the way we'd want to be treated — with honest advice, fair pricing, and work done right the first time.</p>
+        <p>Whether you're coming in for a single flat or a full set of commercial tires, our team brings the same level of care to every job. We know your time matters, and we work hard to get you back on the road fast.</p>
+        <div class="stat-row">
+          <div class="stat"><div class="stat-num">4.2★</div><div class="stat-desc">Google Rating</div></div>
+          <div class="stat"><div class="stat-num">7–5</div><div class="stat-desc">Mon–Fri Hours</div></div>
+          <div class="stat"><div class="stat-num">All</div><div class="stat-desc">Vehicle Types</div></div>
+        </div>
+        <a href="#appointment" class="btn btn-primary">Schedule Service</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tire Brands -->
+  <div class="brands">
+    <p class="brands-label">Tire Brands We Carry</p>
+    <div class="brands-row">
+      <span class="brand-pill">Michelin</span>
+      <span class="brand-pill">Goodyear</span>
+      <span class="brand-pill">BF Goodrich</span>
+      <span class="brand-pill">Firestone</span>
+      <span class="brand-pill">Cooper</span>
+      <span class="brand-pill">Hankook</span>
+      <span class="brand-pill">Continental</span>
+      <span class="brand-pill">Nitto</span>
+      <span class="brand-pill">+ More</span>
+    </div>
+  </div>
+
+  <!-- Reviews -->
+  <section class="reviews" id="reviews">
+    <div class="reviews-header">
+      <div>
+        <p class="section-label">Customer Reviews</p>
+        <h2 class="section-title">What Lincoln<br/>Drivers Say</h2>
+      </div>
+      <div class="rating-summary">
+        <div>
+          <div class="big-rating">4.2</div>
+          <div class="stars">★★★★☆</div>
+          <div class="rating-count">Based on Google Reviews</div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Rob gave me a fair price for a new set of tires and Celo got me in and out quickly. Great service — exactly what you want from a tire shop."</p>
+        <div class="review-author">
+          <div class="review-avatar">R</div>
+          <div><div class="review-name">Rob's customer</div><div class="review-date">Google Review</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Had a flat on the highway and stopped in unexpectedly. They were friendly and got me a great deal on 4 new tires — all done by the time I got off work. Highly recommend."</p>
+        <div class="review-author">
+          <div class="review-avatar">M</div>
+          <div><div class="review-name">Michelle T.</div><div class="review-date">Google Review</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"By far the best tire shop I've been to. They do their best to get you in and back on the road as fast as possible. Great people to talk to while you wait."</p>
+        <div class="review-author">
+          <div class="review-avatar">D</div>
+          <div><div class="review-name">Dave P.</div><div class="review-date">Google Review</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment CTA -->
+  <div class="appt" id="appointment">
+    <div class="appt-text">
+      <h2>Ready to Roll?<br/><em>Book Your Visit.</em></h2>
+      <p>Call us directly or fill out our online form and we'll confirm your appointment time. Walk-ins are always welcome during business hours.</p>
+    </div>
+    <div class="appt-actions">
+      <a href="tel:+14024767200" class="btn btn-primary btn-lg">📞 Call (402) 476-7200</a>
+      <a href="#contact" class="btn btn-ghost btn-lg">Online Form →</a>
+    </div>
+  </div>
+
+  <!-- Hours & Location -->
+  <section class="location" id="location">
+    <div class="location-inner">
+      <div>
+        <h2>Hours & Location</h2>
+        <div class="info-block">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div class="info-body">
+            <strong>Address</strong>
+            <span>6410 N 56th St, Lincoln, NE 68504</span>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <div class="info-body">
+            <strong>Phone</strong>
+            <span><a href="tel:+14024767200">(402) 476-7200</a></span>
+          </div>
+        </div>
+        <div class="map-placeholder">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
+          <p>Embed Google Map here</p>
+        </div>
+      </div>
+      <div>
+        <h2>Business Hours</h2>
+        <table class="hours-table">
+          <tr><td>Monday</td><td>7:30 AM – 5:00 PM</td></tr>
+          <tr><td>Tuesday</td><td>7:30 AM – 5:00 PM</td></tr>
+          <tr><td>Wednesday</td><td>7:30 AM – 5:00 PM</td></tr>
+          <tr><td>Thursday</td><td>7:30 AM – 5:00 PM</td></tr>
+          <tr><td>Friday</td><td>7:30 AM – 5:00 PM</td></tr>
+          <tr><td>Saturday</td><td class="closed">Closed</td></tr>
+          <tr><td>Sunday</td><td class="closed">Closed</td></tr>
+        </table>
+
+        <br/><h2>Send a Message</h2>
+        <div id="contact" style="display:grid; gap:.75rem;">
+          <input type="text" placeholder="Your Name" style="padding:.75rem 1rem; border:1.5px solid var(--border); border-radius:5px; font-family:var(--font-body); font-size:.9rem; width:100%;" />
+          <input type="text" placeholder="Phone or Email" style="padding:.75rem 1rem; border:1.5px solid var(--border); border-radius:5px; font-family:var(--font-body); font-size:.9rem; width:100%;" />
+          <select style="padding:.75rem 1rem; border:1.5px solid var(--border); border-radius:5px; font-family:var(--font-body); font-size:.9rem; color:var(--muted); width:100%;">
+            <option>Select a service…</option>
+            <option>Tire Sales & Installation</option>
+            <option>Flat Tire Repair</option>
+            <option>Tire Rotation</option>
+            <option>Wheel Alignment</option>
+            <option>Fleet Services</option>
+            <option>Brake Inspection</option>
+            <option>Other</option>
+          </select>
+          <textarea placeholder="Tell us what you need…" rows="3" style="padding:.75rem 1rem; border:1.5px solid var(--border); border-radius:5px; font-family:var(--font-body); font-size:.9rem; resize:vertical; width:100%;"></textarea>
+          <button class="btn btn-primary" style="justify-content:center; border:none; width:100%; padding:.9rem; font-size:.95rem; cursor:pointer;">Send Message</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo-text" style="color:white;">Heartland<span>Tire & Treads</span></div>
+        <p>Your trusted tire and auto service shop on North 56th Street in Lincoln, Nebraska. Honest work. Fair prices. Every time.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#">Tire Sales</a>
+        <a href="#">Flat Repair</a>
+        <a href="#">Rotation</a>
+        <a href="#">Alignment</a>
+        <a href="#">Fleet</a>
+        <a href="#">Brakes</a>
+      </div>
+      <div class="footer-col">
+        <h4>Tire Brands</h4>
+        <a href="#">Michelin</a>
+        <a href="#">Goodyear</a>
+        <a href="#">BF Goodrich</a>
+        <a href="#">Firestone</a>
+        <a href="#">Cooper</a>
+        <a href="#">All Brands</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+14024767200">(402) 476-7200</a>
+        <a href="#">6410 N 56th St</a>
+        <a href="#">Lincoln, NE 68504</a>
+        <a href="#">Mon–Fri: 7:30–5:00</a>
+        <a href="#">Sat–Sun: Closed</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Heartland Tire & Treads — Lincoln, NE. All rights reserved.</p>
+      <div>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+

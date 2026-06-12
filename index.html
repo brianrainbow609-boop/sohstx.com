@@ -1,351 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SohStx</title>
-
-<style>
-  :root{
-    --bg:#0b0f14;
-    --panel:#121a2a;
-    --text:#e6e6e6;
-    --accent:#00ffd5;
-    --muted:#8fa3b5;
-  }
-
-  * { box-sizing:border-box; }
-
-  body {
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:var(--bg);
-    color:var(--text);
-  }
-
-  /* HEADER */
-  .header {
-    position:fixed;
-    top:0;
-    width:100%;
-    height:72px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 18px;
-    z-index:1000;
-    overflow:hidden;
-  }
-
-  .header::before {
-    content:"";
-    position:absolute;
-    inset:0;
-    background:url("sohstxhead.jpg") center/cover no-repeat;
-    filter:brightness(0.45);
-    z-index:-1;
-  }
-
-  .logo {
-    font-weight:800;
-    letter-spacing:3px;
-    color:var(--accent);
-  }
-
-  /* NAV */
-  nav {
-    display:flex;
-    gap:18px;
-    align-items:center;
-  }
-
-  nav a {
-    color:var(--text);
-    text-decoration:none;
-    font-size:14px;
-    position:relative;
-  }
-
-  nav a:hover { color:var(--accent); }
-
-  /* DROPDOWN */
-  .dropdown {
-    position:relative;
-  }
-
-  .dropdown-content {
-    display:none;
-    position:absolute;
-    top:30px;
-    left:0;
-    background:#111826;
-    border:1px solid #222;
-    min-width:160px;
-    flex-direction:column;
-  }
-
-  .dropdown-content a {
-    padding:10px;
-    display:block;
-    font-size:13px;
-  }
-
-  .dropdown:hover .dropdown-content {
-    display:flex;
-  }
-
-  /* MOBILE */
-  .menu-toggle {
-    display:none;
-    font-size:24px;
-    cursor:pointer;
-    color:var(--text);
-  }
-
-  @media(max-width:800px){
-    nav {
-      position:absolute;
-      top:72px;
-      right:0;
-      background:#111826;
-      flex-direction:column;
-      width:220px;
-      display:none;
-      border:1px solid #222;
-      padding:10px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heartland Tire & Treads | Lincoln, NE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Tokens ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange:   #E8520A;
+      --orange-dk:#BF400A;
+      --steel:    #1C2229;
+      --steel-md: #2E3A46;
+      --steel-lt: #4A5A68;
+      --smoke:    #F2F4F5;
+      --white:    #FFFFFF;
+      --text:     #1C2229;
+      --muted:    #5A6A78;
+      --border:   #D4D9DE;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body:    'Inter', sans-serif;
+      --nav-h: 68px;
     }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text); background: var(--white); line-height: 1.6; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
 
-    nav.show { display:flex; }
-
-    .menu-toggle { display:block; }
-
-    .dropdown-content {
-      position:relative;
-      top:0;
-      border:none;
+    /* ── Nav ────────────────────────────────────────────────────── */
+    .nav {
+      position: sticky; top: 0; z-index: 999;
+      background: var(--steel);
+      height: var(--nav-h);
+      display: flex; align-items: center;
+      padding: 0 5%;
+      gap: 2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,.35);
     }
-  }
+    .nav-logo {
+      display: flex; align-items: center; gap: .6rem;
+      flex-shrink: 0;
+    }
+    .nav-logo svg { width: 36px; height: 36px; }
+    .nav-logo-text { font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; color: var(--white); letter-spacing: .03em; line-height: 1.1; }
+    .nav-logo-text span { color: var(--orange); display: block; }
+    .nav-links { display: flex; align-items: center; gap: .25rem; margin-left: auto; }
+    .nav-item { position: relative; }
+    .nav-link {
+      font-family: var(--font-body); font-size: .85rem; font-weight: 600; letter-spacing: .04em;
+      text-transform: uppercase; color: rgba(255,255,255,.82);
+      padding: .5rem .75rem; border-radius: 4px;
+      transition: color .15s, background .15s;
+      display: flex; align-items: center; gap: .3rem;
+      cursor: pointer; white-space: nowrap;
+    }
+    .nav-link:hover { color: var(--white); background: rgba(255,255,255,.08); }
+    .nav-link .caret { font-size: .65rem; opacity: .7; transition: transform .2s; }
+    .nav-item:hover .caret { transform: rotate(180deg); }
+    .dropdown {
+      display: none; position: absolute; top: calc(100% + 4px); left: 0;
+      background: var(--white); min-width: 200px; border-radius: 6px;
+      box-shadow: 0 8px 28px rgba(0,0,0,.18); padding: .5rem 0;
+      border-top: 3px solid var(--orange);
+    }
+    .nav-item:hover .dropdown { display: block; }
+    .dropdown a {
+      display: block; padding: .55rem 1.1rem;
+      font-size: .85rem; color: var(--text); font-weight: 500;
+      transition: background .12s, color .12s;
+    }
+    .dropdown a:hover { background: var(--smoke); color: var(--orange); }
+    .nav-cta {
+      background: var(--orange); color: var(--white) !important;
+      padding: .5rem 1.1rem; border-radius: 4px;
+      font-weight: 700;
+    }
+    .nav-cta:hover { background: var(--orange-dk) !important; }
 
-  /* CONTENT */
-  .content {
-    padding-top:100px;
-    padding-left:20px;
-    padding-right:20px;
-    max-width:1100px;
-    margin:auto;
-  }
+    /* ── Hero ───────────────────────────────────────────────────── */
+    .hero {
+      position: relative; overflow: hidden;
+      background: var(--steel);
+      min-height: 520px;
+      display: flex; align-items: center;
+    }
+    /* Diagonal accent */
+    .hero::after {
+      content: '';
+      position: absolute; right: -60px; top: 0; bottom: 0;
+      width: 55%;
+      background: var(--steel-md);
+      clip-path: polygon(14% 0%, 100% 0%, 100% 100%, 0% 100%);
+      z-index: 0;
+    }
+    /* Photo placeholder */
+    .hero-img-box {
+      position: absolute; right: 0; top: 0; bottom: 0; width: 52%;
+      z-index: 1;
+      background: linear-gradient(120deg, #2a3b49 0%, #1a2830 100%);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-img-box img {
+      width: 100%; height: 100%; object-fit: cover; opacity: .55;
+    }
+    .hero-img-placeholder {
+      display: flex; flex-direction: column; align-items: center; gap: .5rem;
+      color: rgba(255,255,255,.3);
+    }
+    .hero-img-placeholder svg { width: 56px; height: 56px; opacity: .4; }
+    .hero-img-placeholder p { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 5rem 5%;
+      max-width: 560px;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-display); font-size: .95rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: .75rem;
+    }
+    .hero h1 {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: clamp(2.6rem, 5.5vw, 4rem); line-height: .95;
+      color: var(--white); letter-spacing: .01em; margin-bottom: 1.25rem;
+      text-transform: uppercase;
+    }
+    .hero h1 em { color: var(--orange); font-style: normal; }
+    .hero-sub {
+      font-size: 1rem; color: rgba(255,255,255,.72); max-width: 420px;
+      line-height: 1.65; margin-bottom: 2rem;
+    }
+    .btn { display: inline-flex; align-items: center; gap: .5rem; font-family: var(--font-body); font-weight: 700; border-radius: 4px; transition: background .15s, transform .12s; cursor: pointer; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--orange); color: var(--white); padding: .85rem 1.75rem; font-size: .95rem; letter-spacing: .03em; }
+    .btn-primary:hover { background: var(--orange-dk); }
+    .btn-ghost { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,.35); padding: .8rem 1.5rem; font-size: .95rem; }
+    .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-  .hero {
-    background:var(--panel);
-    padding:40px;
-    border-radius:12px;
-  }
+    /* ── Trust Bar ──────────────────────────────────────────────── */
+    .trust-bar {
+      background: var(--orange);
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .trust-item {
+      padding: 1.2rem 1.5rem;
+      display: flex; align-items: center; gap: .75rem;
+      border-right: 1px solid rgba(255,255,255,.22);
+    }
+    .trust-item:last-child { border-right: none; }
+    .trust-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .trust-text strong { display: block; font-size: .9rem; font-weight: 700; color: var(--white); line-height: 1.2; }
+    .trust-text span { font-size: .78rem; color: rgba(255,255,255,.8); }
 
-  h2 {
-    margin-top:40px;
-    color:var(--accent);
-  }
+    /* ── Section Basics ─────────────────────────────────────────── */
+    section { padding: 5rem 5%; }
+    .section-label {
+      font-family: var(--font-display); font-size: .85rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--orange);
+      margin-bottom: .6rem;
+    }
+    .section-title {
+      font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800; line-height: 1.05; text-transform: uppercase;
+      color: var(--steel); margin-bottom: 1rem;
+    }
+    .section-sub { font-size: 1rem; color: var(--muted); max-width: 540px; line-height: 1.65; }
 
-  p { color:var(--muted); }
+    /* ── Services ───────────────────────────────────────────────── */
+    .services { background: var(--smoke); }
+    .services-header { margin-bottom: 3rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; }
+    .service-card {
+      background: var(--white); border-radius: 8px;
+      padding: 1.75rem 1.5rem;
+      border-bottom: 3px solid transparent;
+      transition: border-color .2s, box-shadow .2s, transform .15s;
+      position: relative; overflow: hidden;
+    }
+    .service-card:hover { border-bottom-color: var(--orange); box-shadow: 0 6px 24px rgba(0,0,0,.09); transform: translateY(-3px); }
+    .service-icon {
+      width: 48px; height: 48px; background: var(--steel);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.1rem;
+    }
+    .service-icon svg { width: 24px; height: 24px; fill: var(--orange); }
+    .service-card h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; text-transform: uppercase; margin-bottom: .5rem; }
+    .service-card p { font-size: .88rem; color: var(--muted); line-height: 1.6; }
+    .service-card .service-link { display: inline-block; margin-top: 1rem; font-size: .82rem; font-weight: 700; color: var(--orange); letter-spacing: .04em; text-transform: uppercase; }
+    .service-card .service-link:hover { text-decoration: underline; }
 
-  /* GRID SYSTEM */
-  .grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-    gap:16px;
-    margin-top:15px;
-  }
+    /* ── About / Photo split ────────────────────────────────────── */
+    .about { background: var(--white); }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .photo-stack { position: relative; height: 400px; }
+    .photo-main {
+      position: absolute; top: 0; left: 0; right: 40px; bottom: 40px;
+      background: var(--smoke); border-radius: 8px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .photo-accent {
+      position: absolute; right: 0; bottom: 0; width: 55%; height: 55%;
+      background: var(--orange); border-radius: 8px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .photo-placeholder {
+      display: flex; flex-direction: column; align-items: center; gap: .4rem;
+      color: var(--muted);
+    }
+    .photo-accent .photo-placeholder { color: rgba(255,255,255,.7); }
+    .photo-placeholder svg { width: 40px; height: 40px; opacity: .5; }
+    .photo-placeholder p { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; }
+    .about-text .section-title { margin-bottom: 1.25rem; }
+    .about-text p { font-size: .95rem; color: var(--muted); line-height: 1.75; margin-bottom: 1rem; }
+    .stat-row { display: flex; gap: 2rem; margin: 2rem 0; }
+    .stat { }
+    .stat-num { font-family: var(--font-display); font-size: 2.6rem; font-weight: 800; color: var(--orange); line-height: 1; }
+    .stat-desc { font-size: .8rem; font-weight: 600; color: var(--steel-lt); text-transform: uppercase; letter-spacing: .06em; }
 
-  .card {
-    background:#0f1726;
-    padding:16px;
-    border-radius:10px;
-    border:1px solid #1d2a3d;
-  }
+    /* ── Brands ─────────────────────────────────────────────────── */
+    .brands { background: var(--steel); padding: 3.5rem 5%; }
+    .brands-label { font-family: var(--font-display); font-size: .85rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.4); text-align: center; margin-bottom: 2rem; }
+    .brands-row { display: flex; justify-content: center; align-items: center; gap: 2.5rem; flex-wrap: wrap; }
+    .brand-pill {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 6px; padding: .75rem 1.75rem;
+      font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+      color: rgba(255,255,255,.55); letter-spacing: .08em; text-transform: uppercase;
+      transition: background .15s, color .15s;
+    }
+    .brand-pill:hover { background: rgba(255,255,255,.12); color: var(--white); }
 
-  .img-placeholder {
-    height:120px;
-    background:linear-gradient(135deg,#1c2a3d,#0b0f14);
-    border:1px dashed #2c3f55;
-    border-radius:8px;
-    margin-bottom:10px;
-  }
+    /* ── Reviews ────────────────────────────────────────────────── */
+    .reviews { background: var(--smoke); }
+    .reviews-header { margin-bottom: 3rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; }
+    .rating-summary { display: flex; align-items: center; gap: .75rem; }
+    .big-rating { font-family: var(--font-display); font-size: 3.5rem; font-weight: 800; color: var(--steel); line-height: 1; }
+    .stars { color: var(--orange); font-size: 1.3rem; letter-spacing: .05em; }
+    .rating-count { font-size: .8rem; color: var(--muted); margin-top: .2rem; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .review-card {
+      background: var(--white); border-radius: 8px; padding: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    }
+    .review-stars { color: var(--orange); font-size: .95rem; margin-bottom: .75rem; }
+    .review-text { font-size: .9rem; color: var(--text); line-height: 1.65; margin-bottom: 1rem; }
+    .review-author { display: flex; align-items: center; gap: .6rem; }
+    .review-avatar { width: 34px; height: 34px; background: var(--steel); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--orange); flex-shrink: 0; }
+    .review-name { font-size: .85rem; font-weight: 600; }
+    .review-date { font-size: .75rem; color: var(--muted); }
 
-  /* SECTION SPACING */
-  section { margin-top:40px; }
+    /* ── Appointment CTA ────────────────────────────────────────── */
+    .appt {
+      background: var(--steel);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+      padding: 4rem 5%;
+    }
+    .appt-text h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; text-transform: uppercase; color: var(--white); line-height: 1.05; margin-bottom: .75rem; }
+    .appt-text h2 em { color: var(--orange); font-style: normal; }
+    .appt-text p { color: rgba(255,255,255,.65); font-size: .95rem; max-width: 460px; }
+    .appt-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-lg { padding: 1rem 2.25rem; font-size: 1rem; }
 
-  /* FOOTER */
-  footer {
-    margin:60px 0 20px;
-    text-align:center;
-    font-size:12px;
-    color:#5f7285;
-  }
-</style>
+    /* ── Hours & Location ───────────────────────────────────────── */
+    .location { background: var(--white); }
+    .location-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .location h2 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hours-table { width: 100%; border-collapse: collapse; }
+    .hours-table tr { border-bottom: 1px solid var(--border); }
+    .hours-table tr:last-child { border-bottom: none; }
+    .hours-table td { padding: .65rem 0; font-size: .9rem; }
+    .hours-table td:first-child { color: var(--muted); font-weight: 600; width: 40%; }
+    .hours-table td:last-child { font-weight: 500; }
+    .closed { color: var(--muted) !important; font-style: italic; }
+    .info-block { display: flex; gap: .75rem; margin-bottom: 1.25rem; align-items: flex-start; }
+    .info-icon { width: 36px; height: 36px; background: var(--orange); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: .1rem; }
+    .info-icon svg { width: 18px; height: 18px; fill: var(--white); }
+    .info-body strong { display: block; font-size: .85rem; font-weight: 700; margin-bottom: .15rem; }
+    .info-body span { font-size: .88rem; color: var(--muted); }
+    .map-placeholder {
+      background: var(--smoke); border-radius: 8px; margin-top: 1.5rem;
+      height: 220px; display: flex; align-items: center; justify-content: center;
+      border: 2px dashed var(--border);
+      color: var(--muted); text-align: center;
+      flex-direction: column; gap: .4rem;
+    }
+    .map-placeholder svg { width: 32px; height: 32px; opacity: .4; }
+    .map-placeholder p { font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; }
+
+    /* ── Footer ─────────────────────────────────────────────────── */
+    .footer { background: #111820; padding: 3rem 5% 1.5rem; }
+    .footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 3rem; }
+    .footer-brand p { font-size: .85rem; color: rgba(255,255,255,.45); line-height: 1.7; margin-top: .75rem; max-width: 240px; }
+    .footer-col h4 { font-family: var(--font-display); font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: rgba(255,255,255,.35); margin-bottom: 1rem; }
+    .footer-col a { display: block; font-size: .87rem; color: rgba(255,255,255,.55); margin-bottom: .5rem; transition: color .15s; }
+    .footer-col a:hover { color: var(--orange); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
+    .footer-bottom p { font-size: .78rem; color: rgba(255,255,255,.28); }
+    .footer-bottom a { color: rgba(255,255,255,.4); margin-left: 1rem; font-size: .78rem; }
+    .footer-bottom a:hover { color: var(--orange); }
+
+    /* ── Announcement bar ───────────────────────────────────────── */
+    .announce-bar {
+      background: var(--orange-dk); text-align: center;
+      padding: .55rem 1rem;
+      font-size: .82rem; font-weight: 600; color: var(--white); letter-spacing: .03em;
+    }
+    .announce-bar a { text-decoration: underline; color: var(--white); }
+
+    /* ── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero::after, .hero-img-box { display: none; }
+      .hero-content { max-width: 100%; }
+      .trust-bar { grid-template-columns: repeat(2, 1fr); }
+      .trust-item:nth-child(2) { border-right: none; }
+      .about-inner, .location-inner { grid-template-columns: 1fr; }
+      .photo-stack { height: 280px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 560px) {
+      .trust-bar { grid-template-columns: 1fr; }
+      .trust-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.22); }
+      .footer-inner { grid-template-columns: 1fr; }
+      section { padding: 3.5rem 5%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
 </head>
-
 <body>
 
-<header class="header">
-  <div class="logo">SOHSTX</div>
+  <!-- Announcement Bar -->
+  <div class="announce-bar">
+    🔧 &nbsp;Currently accepting walk-ins — <a href="#appointment">Schedule your appointment online</a> and skip the wait.
+  </div>
 
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="#" class="nav-logo" aria-label="Heartland Tire & Treads Home">
+      <!-- Tire SVG icon -->
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="17" stroke="#E8520A" stroke-width="2"/>
+        <circle cx="18" cy="18" r="9" fill="none" stroke="#E8520A" stroke-width="2"/>
+        <circle cx="18" cy="18" r="3.5" fill="#E8520A"/>
+        <line x1="18" y1="1" x2="18" y2="9" stroke="#E8520A" stroke-width="2"/>
+        <line x1="18" y1="27" x2="18" y2="35" stroke="#E8520A" stroke-width="2"/>
+        <line x1="1" y1="18" x2="9" y2="18" stroke="#E8520A" stroke-width="2"/>
+        <line x1="27" y1="18" x2="35" y2="18" stroke="#E8520A" stroke-width="2"/>
+      </svg>
+      <div class="nav-logo-text">Heartland<span>Tire & Treads</span></div>
+    </a>
 
-  <nav id="nav">
-
-    <a href="#home">Home</a>
-
-    <div class="dropdown">
-      <a href="#ideas">Ideas ▾</a>
-      <div class="dropdown-content">
-        <a href="#inventions">Inventions</a>
-        <a href="#code">Code</a>
-        <a href="#writing">Writing</a>
-        <a href="#photography">Photography</a>
+    <div class="nav-links">
+      <div class="nav-item">
+        <span class="nav-link">Services <span class="caret">▾</span></span>
+        <div class="dropdown">
+          <a href="#">Tire Sales & Installation</a>
+          <a href="#">Tire Rotation</a>
+          <a href="#">Wheel Alignment</a>
+          <a href="#">Flat Tire Repair</a>
+          <a href="#">Brake Service</a>
+          <a href="#">Oil Change</a>
+          <a href="#">Fleet Services</a>
+        </div>
       </div>
-    </div>
-
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-
-  </nav>
-</header>
-
-<div class="content">
-
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <h1>SohStx System Interface</h1>
-    <p>A modular space for ideas, prototypes, code fragments, visual experiments, and written thought architecture.</p>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <h2>About SohStx</h2>
-    <p>
-      SohStx is a symbolic system name built from structural and linguistic components:
-      <br><br>
-      <b>Soh</b> — Start of Header (data framing / entry point)<br>
-      <b>Stx</b> — Start of Text (payload / expression layer)
-      <br><br>
-      Together, SohStx represents a boundary between structure and expression — where ideas are framed, stored, and expanded.
-      <br><br>
-      This site also integrates <b>ETX</b> (End of Text), an analytical companion model designed to observe, interpret, and refine the system logic of SohStx outputs. ETX functions as a structured reasoning layer — not emotional, but architectural — helping translate concepts into usable systems, prototypes, and frameworks.
-    </p>
-  </section>
-
-  <!-- IDEAS -->
-  <section id="ideas">
-    <h2>Ideas Index</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="img-placeholder"></div>
-        Concept storage node
+      <div class="nav-item">
+        <span class="nav-link">Tires <span class="caret">▾</span></span>
+        <div class="dropdown">
+          <a href="#">Passenger Tires</a>
+          <a href="#">Truck & SUV Tires</a>
+          <a href="#">Commercial Tires</a>
+          <a href="#">Agricultural Tires</a>
+          <a href="#">Industrial & Forklift</a>
+          <a href="#">Seasonal Tires</a>
+        </div>
       </div>
-      <div class="card">
-        <div class="img-placeholder"></div>
-        Experimental systems
-      </div>
-      <div class="card">
-        <div class="img-placeholder"></div>
-        Future builds
-      </div>
-    </div>
-  </section>
-
-  <!-- INVENTIONS -->
-  <section id="inventions">
-    <h2>Inventions</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="img-placeholder"></div>
-        Mechanical concepts
-      </div>
-      <div class="card">
-        <div class="img-placeholder"></div>
-        Tools & devices
-      </div>
-      <div class="card">
-        <div class="img-placeholder"></div>
-        Prototype systems
-      </div>
-    </div>
-  </section>
-
-  <!-- CODE -->
-  <section id="code">
-    <h2>Code Systems</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="img-placeholder"></div>
-        Web apps / tools
-      </div>
-      <div class="card">
-        <div class="img-placeholder"></div>
-        Automation scripts
-      </div>
-      <div class="card">
-        <div class="img-placeholder"></div>
-        Data systems
-      </div>
-    </div>
-  </section>
-
-  <!-- PHOTOGRAPHY -->
-  <section id="photography">
-    <h2>Photography</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="img-placeholder"></div>
-        Visual capture set 01
-      </div>
-      <div class="card">
-        <div class="img-placeholder"></div>
-        Light experiments
-      </div>
-      <div class="card">
-        <div class="img-placeholder"></div>
-        Field imagery
-      </div>
-    </div>
-  </section>
-
-  <!-- WRITING -->
-  <section id="writing">
-    <h2>Writing / Thought Logs</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="img-placeholder"></div>
-        System notes
-      </div>
-      <div class="card">
-        <div class="img-placeholder"></div>
-        Concept journals
-      </div>
-      <div class="card">
-        <div class="img-placeholder"></div>
-        Abstract thinking
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Placeholder for links, APIs, or future communication layer.</p>
-  </section>
-
-  <footer>
-    SOHSTX / ETX SYSTEM NODE — STATIC BUILD v0.1
-  </footer>
-
-</div>
-
-<script>
-  function toggleMenu(){
-    document.getElementById("nav").classList.toggle("show");
-  }
-</script>
-
-</body>
-</html>
+      <div class="nav-item">
+        <span class="nav-link">Brands <span class="caret">▾</span></span>
+        <div class="dropd
